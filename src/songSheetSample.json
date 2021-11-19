@@ -1,0 +1,29 @@
+{
+  "BPM": 120,
+  "BPB": 8,
+  "lengthSeconds": 30,
+  "bars": [
+    {
+      "number": 1,
+      "sub": [
+        {
+        "note": "a",
+        "beat": 2
+        },
+        {
+        "note": "b",
+        "beat": 4
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "sub": [
+        {
+        "note": "a",
+        "beat": 2
+        }
+      ],
+    },
+  ]
+}
