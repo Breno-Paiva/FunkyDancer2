@@ -4,14 +4,14 @@ module.exports = {
   watchOptions: {
     aggregateTimeout: 600,
     ignored: /node_modules/,
-  }
+  },
   entry: './src/index.js',
   externals: {
     "createjs": "createjs"
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
   },
   module: {
     rules: [
