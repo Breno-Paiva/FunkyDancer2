@@ -7,7 +7,8 @@ module.exports = {
   },
   entry: './src/index.js',
   externals: {
-    "createjs": "createjs"
+    "createjs": "createjs",
+    "jquery": "jQuery"
   },
   output: {
     filename: 'bundle.js',

@@ -1,19 +1,10 @@
 import _ from 'lodash';
 import './style.css';
 import createjs from "createjs";
+import $ from 'jquery';
 
 // how to import image :
 // import ImageFile from './images/image.png'
-
-function gameCanvas() {
-
-  var canv = document.createElement('canvas');
-  canv.id = 'gameCanvas';
-  canv.width = '650';
-  canv.height = '400';
-
-  return canv
-}
 
 function titleBar() {
   const titleBar = document.createElement('div');
@@ -30,11 +21,13 @@ function titleBar() {
 }
 
 function setStage() {
+  var canv = document.createElement('canvas');
+  canv.id = 'gameCanvas';
+  canv.width = '650';
+  canv.height = '400';
+  document.body.appendChild(canv);
+  var stage = new createjs.Stage(canv);
 
-  const gameCanvas = document.getElementById('gameCanvas');
-  console.log(gameCanvas)
-  var stage = new createjs.Stage(gameCanvas);
-  console.log(stage)
 
   var bar = new createjs.Shape();
   bar.graphics.beginFill("teal")
@@ -71,7 +64,22 @@ function setStage() {
   stage.update();
 }
 
+function buttons() {
+  var playButton = document.createElement('button');
+  playButton.innerHTML = 'play';
+  playButton.id = 'playButton';
+  document.body.appendChild(playButton);
+
+  var shallWeDance = new Audio();
+  shallWeDance.src = "../src/audio/sfx/shall_we_AJ.m4a";
+
+  $('#playButton').click((e) => {
+    console.log('click')
+    shallWeDance.play();
+  });
+}
+
 
 document.body.appendChild(titleBar());
-document.body.appendChild(gameCanvas());
 setStage();
+buttons();
