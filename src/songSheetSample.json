@@ -1,4 +1,6 @@
 {
+  "src": "audio/songs/sample.mp3",
+  "title": "sample song",
   "BPM": 120,
   "BPB": 8,
   "lengthSeconds": 30,
@@ -23,7 +25,7 @@
         "note": "a",
         "beat": 2
         }
-      ],
-    },
+      ]
+    }
   ]
 }
