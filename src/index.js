@@ -2,6 +2,7 @@ import _ from 'lodash';
 import './style.css';
 import createjs from "createjs";
 import $ from 'jquery';
+import ShallWeDanceAudio from './audio/sfx/shall_we_AJ.m4a';
 
 // how to import image :
 // import ImageFile from './images/image.png'
@@ -70,8 +71,8 @@ function buttons() {
   playButton.id = 'playButton';
   document.body.appendChild(playButton);
 
-  var shallWeDance = new Audio();
-  shallWeDance.src = "../src/audio/sfx/shall_we_AJ.m4a";
+  var shallWeDance = new Audio(ShallWeDanceAudio);
+  // shallWeDance.src = "./audio/sfx/shall_we_AJ.m4a";
 
   $('#playButton').click((e) => {
     console.log('click')
