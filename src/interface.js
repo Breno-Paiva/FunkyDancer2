@@ -24,7 +24,19 @@ class Interface {
         var playButton = document.createElement('button');
         playButton.innerHTML = 'play';
         playButton.id = 'playButton';
+        this.playButtonOn = true
         return playButton;
+    }
+
+    togglePlayButton() {
+        console.log('toggle')
+        if (this.playButtonOn) {
+            $( "#playButton" ).html( "pause" )
+            this.playButtonOn = false
+        }else{
+            $( "#playButton" ).html( "play" )
+            this.playButtonOn = true
+        }
     }
 
 

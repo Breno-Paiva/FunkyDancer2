@@ -5,12 +5,12 @@ import $ from 'jquery';
 import ShallWeDanceAudio from './audio/sfx/shall_we_AJ.m4a';
 import Interface from './interface.js'
 
-function setupButton() {
+function setupButton(appInterface) {
   var shallWeDance = new Audio(ShallWeDanceAudio);
 
   $('#playButton').click((e) => {
-    console.log('click')
     shallWeDance.play();
+    appInterface.togglePlayButton();
   });
 }
 
@@ -22,4 +22,4 @@ document.body.appendChild(appInterface.canvas)
 appInterface.initStage()
 var playButton = appInterface.playButton
 document.body.appendChild(playButton)
-setupButton();
+setupButton(appInterface);
