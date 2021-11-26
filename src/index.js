@@ -14,12 +14,13 @@ function setupButton(appInterface) {
   });
 }
 
-
-
 var appInterface = new Interface();
 document.body.appendChild(appInterface.titleBar)
 document.body.appendChild(appInterface.canvas)
 appInterface.initStage()
-var playButton = appInterface.playButton
-document.body.appendChild(playButton)
+var stage = appInterface.stage
+document.body.appendChild(appInterface.playButton)
 setupButton(appInterface);
+
+createjs.Ticker.setFPS(60);
+createjs.Ticker.addEventListener("tick", stage);

@@ -2,6 +2,8 @@ class Interface {
     constructor(){
         this.titleBar = this.titleBar();
         this.canvas = this.canvas();
+        this.stage = new createjs.Stage(this.canvas);
+        this.blueCircle = this.blueCircle();
         this.playButton = this.playButton();
     }
     
@@ -29,7 +31,6 @@ class Interface {
     }
 
     togglePlayButton() {
-        console.log('toggle')
         if (this.playButtonOn) {
             $( "#playButton" ).html( "pause" )
             this.playButtonOn = false
@@ -37,17 +38,30 @@ class Interface {
             $( "#playButton" ).html( "play" )
             this.playButtonOn = true
         }
+
+        createjs.Tween.get(this.blueCircle, { loop: false })
+        .to({ x: 400 }, 1000, createjs.Ease.getPowInOut(4))
+        .to({ alpha: 0, y: 175 }, 500, createjs.Ease.getPowInOut(2))
+        .to({ alpha: 0, y: 225 }, 100)
+        .to({ alpha: 1, y: 200 }, 500, createjs.Ease.getPowInOut(2))
+        .to({ x: 100 }, 800, createjs.Ease.getPowInOut(2));
     }
 
+    blueCircle(){
+        var blueCircle = new createjs.Shape();
+        blueCircle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
+        blueCircle.x = 100;
+        blueCircle.y = 100;
+        this.stage.addChild(blueCircle);
+        return blueCircle
+    }
 
     initStage(){
-        var stage = new createjs.Stage(this.canvas);
-        createjs.Ticker.setFPS(55);
         
         var bar = new createjs.Shape();
         bar.graphics.beginFill("teal")
         .drawRect(460, 350, 150, 20)
-        stage.addChild(bar)
+        this.stage.addChild(bar)
         
         var note1 = new createjs.Shape();
         note1.graphics.beginFill("#9cdaff")
@@ -74,19 +88,9 @@ class Interface {
         char4.x = 609;
         char4.y = 373 ;
         
-        stage.addChild(note1, note2, note3, note4, char1, char2, char3, char4)
+        this.stage.addChild(note1, note2, note3, note4, char1, char2, char3, char4)
         
-        stage.update();
-        
-
-        // ** research the new Ticker alternative
-        // createjs.Ticker.setFPS(55);
-        // createjs.Ticker.addEventListener("tick", handleTick);
-        
-        // function handleTick(event){
-            //   noteThing.scroll(1);
-            //   stage.update(event)
-            // }
+        this.stage.update();
     }
             
 }
