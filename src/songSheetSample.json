@@ -1,29 +1,36 @@
 {
   "src": "audio/songs/sample.mp3",
   "title": "sample song",
-  "BPM": 120,
-  "BPB": 8,
+  "beatsPerMinute": 110,
+  "barsPerMeasure": 4,
+  "beatsPerBar": 4,
+  "notesPerBar": 16,
   "lengthSeconds": 30,
-  "bars": [
+  "measure": [
     {
-      "number": 1,
-      "sub": [
+      "num": 1,
+      "bars": [
         {
-        "note": "a",
-        "beat": 2
+          "num": 1,
+          "sub": [
+            {
+            "note": "a",
+            "beat": 2
+            },
+            {
+            "note": "b",
+            "beat": 4
+            }
+          ]
         },
         {
-        "note": "b",
-        "beat": 4
-        }
-      ]
-    },
-    {
-      "number": 2,
-      "sub": [
-        {
-        "note": "a",
-        "beat": 2
+          "num": 2,
+          "sub": [
+            {
+            "note": "a",
+            "beat": 2
+            }
+          ]
         }
       ]
     }
